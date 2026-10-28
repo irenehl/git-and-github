@@ -295,6 +295,14 @@
   .qface.back .big { font-family: var(--mono); font-weight: 700; font-size: 64px; letter-spacing: -.02em; }
   .qface.back p { font-size: 30px; font-weight: 500; line-height: 1.25; }
 
+  /* cheat sheet */
+  .cheat { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+  .cheat .card { padding: 28px 30px; }
+  .cheat .label { font-size: 14px; }
+  .cheat dl { display: flex; flex-direction: column; gap: 14px; }
+  .cheat dt { font-family: var(--mono); font-weight: 700; font-size: 24px; }
+  .cheat dd { font-size: 22px; font-weight: 500; color: rgba(var(--ink-rgb), .7); margin-top: -10px; }
+
 </style>
 </head>
 <body>
@@ -796,6 +804,22 @@
       <div class="card qface"><span class="label">PREGUNTA 3</span><span class="h3">¿Cómo pides que revisen y unan tu rama?</span><span class="tap">CLIC PARA VER ▶</span></div>
       <div class="card qface back c-pink"><span class="big">Pull Request</span><p>Tu equipo comenta, aprueba y hace merge.</p></div>
     </div></div>
+  </div>
+</section>
+
+<!-- 28 · CHEAT SHEET -->
+<section class="slide" data-level="5">
+  <div class="kicker r">Tómale foto a esta</div>
+  <h2 class="h2 r" style="--d:1">Cheat sheet</h2>
+  <div class="cheat">
+    <div class="card c-sun r" style="--d:2"><span class="label">BÁSICO</span><dl>
+      <dt>git init</dt><dd>crear repo</dd><dt>git status</dt><dd>¿qué pasa?</dd><dt>git add .</dt><dd>preparar todo</dd><dt>git commit -m</dt><dd>guardar partida</dd><dt>git log --oneline</dt><dd>historial</dd></dl></div>
+    <div class="card c-sky r" style="--d:3"><span class="label">GITHUB</span><dl>
+      <dt>git clone url</dt><dd>descargar repo</dd><dt>git remote add</dt><dd>conectar remoto</dd><dt>git push</dt><dd>subir</dd><dt>git pull</dt><dd>bajar</dd><dt>git fetch</dt><dd>ver sin mezclar</dd></dl></div>
+    <div class="card c-pink r" style="--d:4"><span class="label">RAMAS</span><dl>
+      <dt>git branch</dt><dd>listar ramas</dd><dt>git switch -c x</dt><dd>crear y entrar</dd><dt>git switch main</dt><dd>cambiar</dd><dt>git merge x</dt><dd>unir</dd><dt>git branch -d x</dt><dd>borrar rama</dd></dl></div>
+    <div class="card c-mint r" style="--d:5"><span class="label">RESCATE</span><dl>
+      <dt>git diff</dt><dd>ver cambios</dd><dt>git restore f</dt><dd>descartar</dd><dt>git stash</dt><dd>guardar a medias</dd><dt>git revert h</dt><dd>deshacer seguro</dd><dt>git reflog</dt><dd>recuperar todo</dd></dl></div>
   </div>
 </section>
 
