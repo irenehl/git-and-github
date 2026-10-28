@@ -283,6 +283,18 @@
   .power p { font-size: 27px; font-weight: 500; line-height: 1.28; }
   .power .label { margin: 0; font-size: 13px; }
 
+  /* quiz */
+  .quiz { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; perspective: 1600px; }
+  .qcard { position: relative; height: 460px; cursor: pointer; }
+  .qinner { position: absolute; inset: 0; transition: transform .8s var(--bounce); transform-style: preserve-3d; }
+  .qcard.open .qinner { transform: rotateY(180deg); }
+  .qface { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; display: flex; flex-direction: column; gap: 24px; }
+  .qface.back { transform: rotateY(180deg); justify-content: center; align-items: flex-start; }
+  .qface .h3 { font-size: 46px; line-height: 1.08; }
+  .qface .tap { margin-top: auto; font-family: var(--pixel); font-size: 14px; color: var(--muted); }
+  .qface.back .big { font-family: var(--mono); font-weight: 700; font-size: 64px; letter-spacing: -.02em; }
+  .qface.back p { font-size: 30px; font-weight: 500; line-height: 1.25; }
+
 </style>
 </head>
 <body>
@@ -764,6 +776,26 @@
     <div class="trow r" style="--d:4"><span>Ya hice push de algo malo</span><code>git revert a1b2c3d</code></div>
     <div class="trow r" style="--d:5"><span>Borré una rama o perdí un commit</span><code>git reflog</code></div>
     <div class="trow warn r" style="--d:6"><span>Nunca en una rama compartida como main</span><code>git push --force</code></div>
+  </div>
+</section>
+
+<!-- 27 · QUIZ -->
+<section class="slide" data-level="5">
+  <div class="kicker r">Bonus stage</div>
+  <h2 class="h2 r" style="--d:1">Quiz relámpago</h2>
+  <div class="quiz">
+    <div class="qcard r" style="--d:2"><div class="qinner">
+      <div class="card qface"><span class="label">PREGUNTA 1</span><span class="h3">¿Qué comando mete cambios al staging?</span><span class="tap">CLIC PARA VER ▶</span></div>
+      <div class="card qface back c-mint"><span class="big">git add</span><p>Y después <b>git commit</b> para tomar la foto.</p></div>
+    </div></div>
+    <div class="qcard r" style="--d:3"><div class="qinner">
+      <div class="card qface"><span class="label">PREGUNTA 2</span><span class="h3">¿Git o GitHub: cuál funciona sin internet?</span><span class="tap">CLIC PARA VER ▶</span></div>
+      <div class="card qface back c-sun"><span class="big">Git</span><p>GitHub es solo el lugar en la nube donde compartes.</p></div>
+    </div></div>
+    <div class="qcard r" style="--d:4"><div class="qinner">
+      <div class="card qface"><span class="label">PREGUNTA 3</span><span class="h3">¿Cómo pides que revisen y unan tu rama?</span><span class="tap">CLIC PARA VER ▶</span></div>
+      <div class="card qface back c-pink"><span class="big">Pull Request</span><p>Tu equipo comenta, aprueba y hace merge.</p></div>
+    </div></div>
   </div>
 </section>
 
