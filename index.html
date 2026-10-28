@@ -267,6 +267,14 @@
   .slide.active .merge { animation: press 2.4s var(--ease) infinite 2.2s; }
   @keyframes press { 0%, 70%, 100% { transform: none; box-shadow: 5px 5px 0 var(--ink); } 80% { transform: translate(5px,5px); box-shadow: 0 0 0 var(--ink); } }
 
+  /* team */
+  .team { display: flex; gap: 24px; margin-top: 34px; align-items: stretch; }
+  .member { display: flex; align-items: center; gap: 18px; background: var(--white); border: 4px solid var(--ink); border-radius: 18px; padding: 16px 26px 16px 16px; box-shadow: 6px 6px 0 var(--ink); }
+  .member b { display: block; font-size: 30px; font-weight: 750; }
+  .member span:not(.avatar) { font-size: 24px; font-weight: 500; color: var(--muted); }
+  .member.rulebox { flex: 1; background: var(--sun); font-size: 30px; font-weight: 600; padding: 16px 28px; }
+  .member.rulebox b { display: inline; font-size: inherit; }
+
 </style>
 </head>
 <body>
@@ -636,6 +644,68 @@
         <div class="comment r" style="--d:5"><span class="avatar" style="background:var(--sun)">TÚ</span><div class="bubble"><b>tú</b>Listo, ya lo cambié en el último commit.</div></div>
         <span class="merge r" style="--d:6">Merge pull request</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · VARIAS PERSONAS -->
+<section class="slide" data-level="4">
+  <div class="kicker r">Un repo, muchas manos</div>
+  <h2 class="h2 r" style="--d:1">Así se ve un equipo</h2>
+  <div class="graph r" style="--d:2; margin-top:30px">
+    <svg viewBox="0 0 1620 400" fill="none">
+      <path class="line" d="M40 340 H1580" stroke="#1d1633" stroke-width="10"/>
+      <path class="line" d="M200 340 C250 340 250 70 300 70 H600 C650 70 650 340 700 340" stroke="#ff7cc8" stroke-width="10"/>
+      <path class="line" d="M320 340 C370 340 370 160 420 160 H900 C950 160 950 340 1000 340" stroke="#58a8ff" stroke-width="10"/>
+      <path class="line" d="M760 340 C810 340 810 250 860 250 H1150 C1200 250 1200 340 1250 340" stroke="#ff5a36" stroke-width="10"/>
+      <g stroke="#1d1633" stroke-width="6">
+        <circle style="--d:0" cx="110" cy="340" r="24" fill="#ffc928"/>
+        <circle style="--d:1" cx="200" cy="340" r="24" fill="#ffc928"/>
+        <circle style="--d:2" cx="320" cy="340" r="24" fill="#ffc928"/>
+        <circle style="--d:3" cx="380" cy="70" r="24" fill="#ff7cc8"/>
+        <circle style="--d:4" cx="520" cy="70" r="24" fill="#ff7cc8"/>
+        <circle style="--d:4" cx="520" cy="160" r="24" fill="#58a8ff"/>
+        <circle style="--d:6" cx="700" cy="340" r="32" fill="#2fd6a1"/>
+        <circle style="--d:6" cx="700" cy="160" r="24" fill="#58a8ff"/>
+        <circle style="--d:7" cx="760" cy="340" r="24" fill="#ffc928"/>
+        <circle style="--d:7" cx="840" cy="160" r="24" fill="#58a8ff"/>
+        <circle style="--d:8" cx="960" cy="250" r="24" fill="#ff5a36"/>
+        <circle style="--d:9" cx="1000" cy="340" r="32" fill="#2fd6a1"/>
+        <circle style="--d:10" cx="1090" cy="250" r="24" fill="#ff5a36"/>
+        <circle style="--d:11" cx="1250" cy="340" r="32" fill="#2fd6a1"/>
+        <circle style="--d:12" cx="1450" cy="340" r="24" fill="#ffc928"/>
+      </g>
+      <text x="300" y="30" fill="#1d1633">Ana · feature/login</text>
+      <text x="700" y="125" fill="#1d1633">Beto · feature/menu</text>
+      <text x="1060" y="215" fill="#1d1633">Caro · fix/footer</text>
+      <text x="40" y="392" fill="#1d1633">main</text>
+      <text x="1300" y="392" fill="#1d1633">3 PRs, 3 merges ✓</text>
+    </svg>
+  </div>
+  <div class="team">
+    <div class="member r" style="--d:4"><span class="avatar">A</span><div><b>Ana</b><span>hace el login</span></div></div>
+    <div class="member r" style="--d:5"><span class="avatar" style="background:var(--sky)">B</span><div><b>Beto</b><span>hace el menú</span></div></div>
+    <div class="member r" style="--d:6"><span class="avatar" style="background:var(--tomato)">C</span><div><b>Caro</b><span>arregla el footer</span></div></div>
+    <div class="member rulebox r" style="--d:7">Cada quien en <b>su rama</b>. Nada entra a main sin <b>PR</b>.</div>
+  </div>
+</section>
+
+<!-- 22 · PUSH RECHAZADO -->
+<section class="slide" data-level="4">
+  <div class="split even">
+    <div>
+      <div class="kicker r">Error clásico de equipo</div>
+      <h2 class="h2 r" style="--d:1; font-size:88px">¿Y si dos hacen push a la vez?</h2>
+      <p class="lede r" style="--d:2">GitHub acepta al <b>primero</b>. Al segundo lo rechaza hasta que traiga los cambios nuevos, para no borrar el trabajo de nadie.</p>
+      <ol class="steps mt">
+        <li class="r" style="--d:3"><span><span class="ic">git pull</span> trae y mezcla lo nuevo</span></li>
+        <li class="r" style="--d:4">Resuelve conflictos si aparecen</li>
+        <li class="r" style="--d:5"><span><span class="ic">git push</span> otra vez</span></li>
+      </ol>
+    </div>
+    <div class="term r" style="--d:2">
+      <div class="term-bar"><i></i><i></i><i></i><span>compu de Beto</span></div>
+<pre style="font-size:26px"><span class="c r" style="--d:3"># Ana hizo push hace 1 minuto...</span><span class="r" style="--d:4"><span class="p">beto $</span> git <span class="k">push</span></span><span class="w r" style="--d:5"> ! [rejected]  main -> main (fetch first)</span><span class="w r" style="--d:5">error: failed to push some refs</span><span class="r" style="--d:6"> </span><span class="r" style="--d:6"><span class="p">beto $</span> git <span class="k">pull</span></span><span class="o r" style="--d:7">Merge made by the 'ort' strategy.</span><span class="r" style="--d:8"><span class="p">beto $</span> git <span class="k">push</span></span><span class="p r" style="--d:9">   c3d4e5f..f7a8b9c  main -> main</span><span class="r cur" style="--d:10"><span class="p">beto $</span> </span></pre>
     </div>
   </div>
 </section>
