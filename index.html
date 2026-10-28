@@ -116,6 +116,38 @@
   .graph-cover circle, .graph svg circle { transform-box: fill-box; transform-origin: center; transform: scale(0); }
   .slide.active .graph-cover circle, .slide.active .graph svg circle { transition: transform .6s var(--bounce); transition-delay: calc(var(--d) * 140ms + 500ms); transform: scale(1); }
 
+  /* ---------- files (te suena) ---------- */
+  .files { display: flex; flex-direction: column; gap: 22px; }
+  .file { display: flex; align-items: center; gap: 24px; font-family: var(--mono); font-weight: 600; font-size: 31px; background: var(--white); border: 4px solid var(--ink); border-radius: 20px; padding: 22px 30px; box-shadow: 7px 7px 0 var(--ink); width: max-content; }
+  .file::before { content: ""; width: 34px; height: 42px; background: var(--sky); border: 3px solid var(--ink); border-radius: 4px 14px 4px 4px; flex: none; }
+  .file:nth-child(2) { margin-left: 40px; rotate: 1deg; } .file:nth-child(3) { margin-left: 80px; rotate: -1.5deg; }
+  .file:nth-child(4) { margin-left: 120px; rotate: 1deg; } .file:nth-child(5) { margin-left: 160px; rotate: -2deg; background: var(--sun); }
+  .file:nth-child(5)::before { background: var(--tomato); }
+
+  /* ---------- save slots ---------- */
+  .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 64px; }
+  .slot { padding: 34px 36px; display: flex; flex-direction: column; gap: 18px; min-height: 290px; }
+  .slot .label { margin: 0; }
+  .slot .time { font-family: var(--mono); font-size: 22px; color: var(--muted); }
+  .slot p { font-size: 40px; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+  .slot .hash { margin-top: auto; font-family: var(--mono); font-size: 22px; font-weight: 600; }
+  .slot.bad { background: var(--tomato); }
+  .slot.bad .time, .slot.bad .hash { color: rgba(var(--ink-rgb), .7); }
+  .load { margin-top: 46px; display: flex; align-items: center; gap: 26px; font-size: 38px; font-weight: 600; }
+  .btn { font-family: var(--pixel); font-size: 18px; padding: 18px 22px; background: var(--mint); border: 4px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+  .slide.active .btn.blinky { animation: btnpulse 1.4s steps(2) infinite 2s; }
+  @keyframes btnpulse { 50% { background: var(--sun); } }
+
+  /* ---------- vs ---------- */
+  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: center; margin-top: 56px; }
+  .vs .card { min-height: 430px; display: flex; flex-direction: column; gap: 22px; }
+  .vs .card .h3 { font-size: 76px; }
+  .vs ul { list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 32px; font-weight: 500; line-height: 1.25; }
+  .vs li { display: flex; gap: 16px; }
+  .vs li::before { content: ""; width: 16px; height: 16px; background: var(--ink); margin-top: 12px; flex: none; }
+  .vs-badge { font-family: var(--pixel); font-size: 34px; background: var(--tomato); border: 4px solid var(--ink); padding: 26px 22px; box-shadow: 6px 6px 0 var(--ink); transform: rotate(-8deg); }
+  .analogy { margin-top: 54px; font-size: 46px; font-weight: 700; letter-spacing: -.02em; }
+
 </style>
 </head>
 <body>
@@ -154,6 +186,54 @@
       <circle style="--d:7" cx="1780" cy="160" r="24" fill="#ffc928"/>
     </g>
   </svg>
+</section>
+
+<!-- 2 · TE SUENA -->
+<section class="slide" data-level="0">
+  <div class="grid2">
+    <div>
+      <div class="kicker r">El problema</div>
+      <h2 class="h2 r" style="--d:1">¿Te suena<br>esto?</h2>
+      <p class="lede r" style="--d:2">Eso es <b>control de versiones</b>… pero hecho a mano, con miedo y sin saber cuál es el bueno.</p>
+    </div>
+    <div class="files">
+      <div class="file r" style="--d:2">tarea.docx</div>
+      <div class="file r" style="--d:3">tarea_final.docx</div>
+      <div class="file r" style="--d:4">tarea_final_v2.docx</div>
+      <div class="file r" style="--d:5">tarea_final_AHORA_SI.docx</div>
+      <div class="file r" style="--d:6">tarea_final_AHORA_SI (1).docx</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · GUARDAR PARTIDA -->
+<section class="slide" data-level="0">
+  <div class="kicker r">La idea</div>
+  <h2 class="h2 r" style="--d:1">Git es como <span class="mark">guardar partida</span></h2>
+  <div class="slots">
+    <div class="card slot c-white r" style="--d:2"><span class="label">SLOT 1</span><span class="time">lunes · 09:14</span><p>Creé la página de inicio</p><span class="hash">commit a1b2c3d</span></div>
+    <div class="card slot c-mint r" style="--d:3"><span class="label">SLOT 2</span><span class="time">lunes · 10:02</span><p>Agregué el menú y los estilos</p><span class="hash">commit c3d4e5f</span></div>
+    <div class="card slot bad r" style="--d:4"><span class="label">SLOT 3</span><span class="time">lunes · 23:47</span><p>Toqué algo y se rompió todo</p><span class="hash">commit e4f5a6b</span></div>
+  </div>
+  <div class="load r" style="--d:6"><span class="btn blinky">CARGAR SLOT 2?</span> Cada <span class="mark m">commit</span> es un punto de guardado al que puedes volver.</div>
+</section>
+
+<!-- 4 · GIT VS GITHUB -->
+<section class="slide" data-level="0">
+  <div class="kicker r">No son lo mismo</div>
+  <h2 class="h2 r" style="--d:1">Git ≠ GitHub</h2>
+  <div class="vs">
+    <div class="card c-sun r" style="--d:2">
+      <span class="h3">Git</span>
+      <ul><li>Un programa que instalas en tu compu</li><li>Guarda el historial de tu proyecto</li><li>Funciona sin internet</li></ul>
+    </div>
+    <div class="vs-badge pop" style="--d:4">VS</div>
+    <div class="card c-sky r" style="--d:3">
+      <span class="h3">GitHub</span>
+      <ul><li>Un sitio web en la nube</li><li>Guarda una copia de tus repos</li><li>Para colaborar y armar tu portafolio</li></ul>
+    </div>
+  </div>
+  <p class="analogy r" style="--d:5">Git es la <span class="mark">cámara</span>. GitHub es el <span class="mark s">Instagram</span> donde publicas las fotos.</p>
 </section>
 
 </div></div>
