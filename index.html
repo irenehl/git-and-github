@@ -229,6 +229,14 @@
   .wire code { font-size: 30px; }
   .wire small { font-size: 24px; font-weight: 500; color: var(--muted); }
 
+  /* branch graph */
+  .graph svg { width: 100%; height: auto; display: block; }
+  .graph text { font-family: var(--mono); font-weight: 700; font-size: 28px; }
+  .chips { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 40px; }
+  .cchip { display: flex; flex-direction: column; gap: 8px; padding: 18px 24px; background: var(--white); border: 4px solid var(--ink); border-radius: 18px; box-shadow: 6px 6px 0 var(--ink); }
+  .cchip code { font-size: 27px; }
+  .cchip span { font-size: 24px; font-weight: 500; color: var(--muted); }
+
 </style>
 </head>
 <body>
@@ -492,6 +500,67 @@
     </div>
   </div>
   <p class="analogy r" style="--d:6; font-size:40px; margin-top:44px">Regla de oro: <span class="mark">pull</span> antes de empezar, <span class="mark m">push</span> al terminar.</p>
+</section>
+
+<!-- 15 · NIVEL 3 -->
+<section class="slide divider" data-level="3" data-bg="#ff7cc8">
+  <div class="world pop">NIVEL 3</div>
+  <h2 class="display r" style="--d:1">Ramas</h2>
+  <p class="lede r" style="--d:2">Universos paralelos para experimentar sin romper nada.</p>
+  <div class="levels r" style="--d:3"><i class="done">1</i><b></b><i class="done">2</i><b></b><i class="now">3</i><b></b><i>4</i><b></b><i>5</i></div>
+</section>
+
+<!-- 16 · BRANCHES -->
+<section class="slide" data-level="3">
+  <div class="kicker r">branch · switch · merge</div>
+  <h2 class="h2 r" style="--d:1">Un multiverso de código</h2>
+  <div class="graph r" style="--d:2; margin-top:40px">
+    <svg viewBox="0 0 1620 330" fill="none">
+      <path class="line" d="M40 250 H1580" stroke="#1d1633" stroke-width="10"/>
+      <path class="line" d="M420 250 C540 250 540 90 660 90 H1000 C1120 90 1120 250 1240 250" stroke="#ff5a36" stroke-width="10"/>
+      <g stroke="#1d1633" stroke-width="6">
+        <circle style="--d:0" cx="120" cy="250" r="28" fill="#ffc928"/>
+        <circle style="--d:1" cx="270" cy="250" r="28" fill="#ffc928"/>
+        <circle style="--d:2" cx="420" cy="250" r="28" fill="#ffc928"/>
+        <circle style="--d:3" cx="700" cy="90" r="28" fill="#ff7cc8"/>
+        <circle style="--d:4" cx="830" cy="90" r="28" fill="#ff7cc8"/>
+        <circle style="--d:5" cx="960" cy="90" r="28" fill="#ff7cc8"/>
+        <circle style="--d:6" cx="800" cy="250" r="28" fill="#ffc928"/>
+        <circle style="--d:8" cx="1240" cy="250" r="36" fill="#2fd6a1"/>
+        <circle style="--d:9" cx="1440" cy="250" r="28" fill="#ffc928"/>
+      </g>
+      <text x="40" y="310" fill="#1d1633">main</text>
+      <text x="660" y="40" fill="#ff5a36">feature/login</text>
+      <text x="1180" y="316" fill="#1d1633">merge ✓</text>
+    </svg>
+  </div>
+  <div class="chips">
+    <div class="cchip r" style="--d:3"><code>git switch -c feature/login</code><span>crea la rama y entra</span></div>
+    <div class="cchip r" style="--d:4"><code>git branch</code><span>¿en qué rama estoy?</span></div>
+    <div class="cchip r" style="--d:5"><code>git switch main</code><span>volver a main</span></div>
+    <div class="cchip c-mint r" style="--d:6"><code>git merge feature/login</code><span>unir los universos</span></div>
+  </div>
+</section>
+
+<!-- 17 · CONFLICTS -->
+<section class="slide" data-level="3">
+  <div class="split even">
+    <div>
+      <div class="kicker r">Jefe final del nivel 3</div>
+      <h2 class="h2 r" style="--d:1">Conflictos</h2>
+      <p class="lede r" style="--d:2">Pasa cuando dos ramas cambian <b>la misma línea</b>. Git no adivina: te pregunta a ti.</p>
+      <ol class="steps mt">
+        <li class="r" style="--d:3">Respira. No se perdió nada.</li>
+        <li class="r" style="--d:4">Elige una versión (o combínalas)</li>
+        <li class="r" style="--d:5">Borra los marcadores &lt;&lt;&lt; === &gt;&gt;&gt;</li>
+        <li class="r" style="--d:6"><span><span class="ic">git add</span> + <span class="ic">git commit</span></span></li>
+      </ol>
+    </div>
+    <div class="term r" style="--d:2">
+      <div class="term-bar"><i></i><i></i><i></i><span>index.html · CONFLICT</span></div>
+<pre><span class="o r" style="--d:3">&lt;body&gt;</span><span class="w r" style="--d:4">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><span class="r" style="--d:4">  &lt;h1&gt;Bienvenidos&lt;/h1&gt;</span><span class="k r" style="--d:5">=======</span><span class="r" style="--d:5">  &lt;h1&gt;Hola, mundo&lt;/h1&gt;</span><span class="s r" style="--d:6">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/saludo</span><span class="o r" style="--d:6">&lt;/body&gt;</span><span class="r" style="--d:7"> </span><span class="c r" style="--d:7"># arriba: tu rama actual</span><span class="c r" style="--d:7"># abajo: la rama que entra</span></pre>
+    </div>
+  </div>
 </section>
 
 </div></div>
