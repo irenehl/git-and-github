@@ -211,6 +211,24 @@
   .danger { margin-top: 40px; display: flex; align-items: center; gap: 26px; background: var(--tomato); border: 4px solid var(--ink); border-radius: 22px; padding: 26px 32px; box-shadow: var(--shadow); font-size: 36px; font-weight: 750; letter-spacing: -.015em; }
   .danger .sym { font-family: var(--pixel); font-size: 40px; width: 74px; height: 74px; background: var(--sun); border: 4px solid var(--ink); display: grid; place-items: center; flex: none; }
 
+  /* remote diagram */
+  .remote { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 30px; align-items: center; margin-top: 60px; }
+  .place { text-align: center; padding: 46px 30px; min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; }
+  .place svg { width: 130px; height: 130px; }
+  .place .h3 { font-size: 52px; }
+  .place p { font-family: var(--mono); font-weight: 600; font-size: 22px; color: rgba(var(--ink-rgb), .7); }
+  .wires { display: flex; flex-direction: column; gap: 34px; }
+  .wire { display: flex; flex-direction: column; gap: 8px; }
+  .wire .line { position: relative; height: 34px; display: flex; align-items: center; }
+  .wire .line::before { content: ""; position: absolute; left: 0; right: 24px; height: 6px; background: repeating-linear-gradient(90deg, var(--ink) 0 18px, transparent 18px 30px); background-size: 60px 6px; }
+  .wire .line::after { content: ""; position: absolute; right: 0; border-left: 30px solid var(--ink); border-top: 17px solid transparent; border-bottom: 17px solid transparent; }
+  .wire.left .line { transform: scaleX(-1); }
+  .slide.active .wire .line::before { animation: march 1s linear infinite; }
+  @keyframes march { to { background-position: 60px 0; } }
+  .wire div.t { display: flex; justify-content: space-between; align-items: baseline; }
+  .wire code { font-size: 30px; }
+  .wire small { font-size: 24px; font-weight: 500; color: var(--muted); }
+
 </style>
 </head>
 <body>
@@ -424,6 +442,56 @@
       </div>
     </div>
   </div>
+</section>
+
+<!-- 12 · NIVEL 2 -->
+<section class="slide divider" data-level="2" data-bg="#58a8ff">
+  <div class="world pop">NIVEL 2</div>
+  <h2 class="display r" style="--d:1">A la nube</h2>
+  <p class="lede r" style="--d:2">Tu código ya no vive solo en tu laptop.</p>
+  <div class="levels r" style="--d:3"><i class="done">1</i><b></b><i class="now">2</i><b></b><i>3</i><b></b><i>4</i><b></b><i>5</i></div>
+</section>
+
+<!-- 13 · PUSH -->
+<section class="slide" data-level="2">
+  <div class="split">
+    <div>
+      <div class="kicker r">Subir tu repo</div>
+      <h2 class="h2 r" style="--d:1">Tu primer push</h2>
+      <ol class="steps mt">
+        <li class="r" style="--d:2"><span>Crea un repo vacío en GitHub<small>github.com/new</small></span></li>
+        <li class="r" style="--d:3"><span>Conecta tu repo local con el remoto<small>"origin" es solo el apodo de GitHub</small></span></li>
+        <li class="r" style="--d:4"><span>Empuja tus commits</span></li>
+      </ol>
+      <div class="note r" style="--d:6">GitHub ya <b>no acepta tu contraseña</b> en la terminal. Usa <span class="ic">gh auth login</span>, SSH o un token.</div>
+    </div>
+    <div class="term r" style="--d:2">
+      <div class="term-bar"><i></i><i></i><i></i><span>~/mi-proyecto</span></div>
+<pre><span class="r" style="--d:3"><span class="p">$</span> git <span class="k">remote add</span> origin \</span><span class="r" style="--d:3">  <span class="s">github.com/tu-user/mi-proyecto</span></span><span class="r" style="--d:4"> </span><span class="r" style="--d:4"><span class="p">$</span> git <span class="k">push</span> -u origin main</span><span class="o r" style="--d:5">Enumerating objects: 3, done.</span><span class="o r" style="--d:5">Writing objects: 100%</span><span class="r p" style="--d:6"> * [new branch]  main -> main</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · REMOTE -->
+<section class="slide" data-level="2">
+  <div class="kicker r">Ida y vuelta</div>
+  <h2 class="h2 r" style="--d:1">Local ⇄ Remoto</h2>
+  <div class="remote">
+    <div class="card place c-sun r" style="--d:2">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#1d1633" stroke-width="6" stroke-linejoin="round"><rect x="16" y="20" width="68" height="46" rx="6" fill="#fffdf8"/><path d="M6 80h88l-8-14H14z" fill="#1d1633"/></svg>
+      <span class="h3">Tu compu</span><p>local</p>
+    </div>
+    <div class="wires">
+      <div class="wire r" style="--d:3"><div class="t"><code>git push</code><small>subir</small></div><div class="line"></div></div>
+      <div class="wire left r" style="--d:4"><div class="t"><code>git pull</code><small>bajar cambios</small></div><div class="line"></div></div>
+      <div class="wire left r" style="--d:5"><div class="t"><code>git clone</code><small>descargar todo, 1 vez</small></div><div class="line"></div></div>
+    </div>
+    <div class="card place c-sky r" style="--d:2">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#1d1633" stroke-width="6" stroke-linejoin="round"><path d="M28 76a18 18 0 0 1-2-36 24 24 0 0 1 46-4 20 20 0 0 1 2 40z" fill="#fffdf8"/></svg>
+      <span class="h3">GitHub</span><p>remoto · origin</p>
+    </div>
+  </div>
+  <p class="analogy r" style="--d:6; font-size:40px; margin-top:44px">Regla de oro: <span class="mark">pull</span> antes de empezar, <span class="mark m">push</span> al terminar.</p>
 </section>
 
 </div></div>
