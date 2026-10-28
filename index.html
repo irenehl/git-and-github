@@ -148,6 +148,57 @@
   .vs-badge { font-family: var(--pixel); font-size: 34px; background: var(--tomato); border: 4px solid var(--ink); padding: 26px 22px; box-shadow: 6px 6px 0 var(--ink); transform: rotate(-8deg); }
   .analogy { margin-top: 54px; font-size: 46px; font-weight: 700; letter-spacing: -.02em; }
 
+  /* ---------- divider ---------- */
+  .divider { align-items: center; text-align: center; }
+  .divider .world { font-family: var(--pixel); font-size: 36px; margin-bottom: 40px; }
+  .divider .display { font-size: 210px; }
+  .divider .lede { color: rgba(var(--ink-rgb), .75); text-align: center; }
+  .levels { display: flex; align-items: center; margin-top: 80px; }
+  .levels i { width: 46px; height: 46px; border: 4px solid var(--ink); background: var(--white); display: grid; place-items: center; font-style: normal; font-family: var(--pixel); font-size: 14px; }
+  .levels i.done { background: var(--ink); color: var(--paper); }
+  .levels i.now { background: var(--white); transform: scale(1.35); box-shadow: 4px 4px 0 var(--ink); }
+  .slide.active .levels i.now { animation: hop 1s var(--bounce) infinite alternate .8s; }
+  @keyframes hop { to { transform: scale(1.35) translateY(-12px); } }
+  .levels b { width: 90px; height: 4px; background: var(--ink); }
+
+  /* ---------- zones ---------- */
+  .zones { display: grid; grid-template-columns: 1fr 200px 1fr 200px 1fr; align-items: center; margin-top: 60px; }
+  .zone { text-align: center; padding: 40px 30px; min-height: 380px; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+  .zone svg { width: 110px; height: 110px; }
+  .zone .h3 { font-size: 46px; }
+  .zone .sub { font-family: var(--mono); font-size: 22px; font-weight: 600; color: var(--muted); }
+  .zone p { font-size: 29px; font-weight: 500; line-height: 1.25; }
+  .arrow { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .arrow code { font-size: 26px; background: var(--ink); color: var(--sun); padding: 10px 14px; border-radius: 12px; white-space: nowrap; }
+  .arrow svg { width: 120px; height: 40px; }
+  .slide.active .arrow svg { animation: nudge 1.2s ease-in-out infinite; }
+  @keyframes nudge { 50% { transform: translateX(12px); } }
+
+  /* ---------- side layouts ---------- */
+  .split { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; margin-top: 50px; }
+  .split.even { grid-template-columns: 1fr 1fr; }
+  .steps { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 26px; }
+  .steps li { counter-increment: s; display: flex; gap: 24px; align-items: flex-start; font-size: 34px; font-weight: 600; line-height: 1.22; letter-spacing: -.01em; }
+  .steps li::before { content: counter(s); font-family: var(--pixel); font-size: 20px; width: 56px; height: 56px; flex: none; display: grid; place-items: center; background: var(--sun); border: 4px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+  .steps li small { display: block; font-size: 26px; font-weight: 500; color: var(--muted); margin-top: 6px; }
+  .note { margin-top: 44px; font-size: 30px; font-weight: 500; line-height: 1.3; padding: 24px 30px; border: 4px dashed var(--ink); border-radius: 20px; background: rgba(255,253,248,.6); }
+  .note b { font-weight: 700; }
+
+  /* table */
+  .table { display: flex; flex-direction: column; gap: 16px; }
+  .trow { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; background: var(--white); border: 4px solid var(--ink); border-radius: 18px; padding: 18px 26px; box-shadow: 6px 6px 0 var(--ink); }
+  .trow span { font-size: 30px; font-weight: 600; letter-spacing: -.01em; }
+  .trow code { font-size: 26px; background: var(--ink); color: var(--sun); padding: 8px 14px; border-radius: 10px; white-space: nowrap; }
+  .trow.warn { background: var(--sun); }
+
+  /* gitignore */
+  .ignore-list { display: flex; flex-direction: column; gap: 18px; }
+  .ig { display: flex; align-items: center; gap: 24px; font-size: 30px; font-weight: 600; }
+  .ig code { font-size: 30px; min-width: 260px; background: var(--white); border: 3px solid var(--ink); border-radius: 12px; padding: 8px 16px; }
+  .ig small { font-weight: 500; color: var(--muted); font-size: 28px; }
+  .danger { margin-top: 40px; display: flex; align-items: center; gap: 26px; background: var(--tomato); border: 4px solid var(--ink); border-radius: 22px; padding: 26px 32px; box-shadow: var(--shadow); font-size: 36px; font-weight: 750; letter-spacing: -.015em; }
+  .danger .sym { font-family: var(--pixel); font-size: 40px; width: 74px; height: 74px; background: var(--sun); border: 4px solid var(--ink); display: grid; place-items: center; flex: none; }
+
 </style>
 </head>
 <body>
@@ -234,6 +285,117 @@
     </div>
   </div>
   <p class="analogy r" style="--d:5">Git es la <span class="mark">cámara</span>. GitHub es el <span class="mark s">Instagram</span> donde publicas las fotos.</p>
+</section>
+
+<!-- 5 · NIVEL 1 -->
+<section class="slide divider" data-level="1" data-bg="#ffc928">
+  <div class="world pop">NIVEL 1</div>
+  <h2 class="display r" style="--d:1">Lo básico</h2>
+  <p class="lede r" style="--d:2">Tu compu, tu proyecto, tus primeros commits.</p>
+  <div class="levels r" style="--d:3"><i class="now">1</i><b></b><i>2</i><b></b><i>3</i><b></b><i>4</i><b></b><i>5</i></div>
+</section>
+
+<!-- 6 · CONFIG -->
+<section class="slide" data-level="1">
+  <div class="split">
+    <div class="term r" style="--d:1">
+      <div class="term-bar"><i></i><i></i><i></i><span>~ · una sola vez</span></div>
+<pre><span class="r" style="--d:2"><span class="p">$</span> git <span class="k">--version</span></span><span class="o r" style="--d:3">git version 2.47.0</span><span class="r" style="--d:4"> </span><span class="r" style="--d:4"><span class="p">$</span> git <span class="k">config</span> --global user.name <span class="s">"Tu Nombre"</span></span><span class="r" style="--d:5"><span class="p">$</span> git <span class="k">config</span> --global user.email <span class="s">"tu@correo.com"</span></span><span class="r" style="--d:6"><span class="p">$</span> git <span class="k">config</span> --global init.defaultBranch <span class="s">main</span></span><span class="r cur" style="--d:7"><span class="p">$</span> </span></pre>
+    </div>
+    <div>
+      <div class="kicker r">Paso 0</div>
+      <h2 class="h2 r" style="--d:1">Crea tu personaje</h2>
+      <p class="lede r" style="--d:2">Instala Git desde <b>git-scm.com</b> y dile quién eres. Esa firma aparece en <b>cada commit</b>.</p>
+      <div class="note r" style="--d:3">Usa el <b>mismo correo</b> que en tu cuenta de GitHub.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · TRES ZONAS -->
+<section class="slide" data-level="1">
+  <div class="kicker r">Cómo piensa Git</div>
+  <h2 class="h2 r" style="--d:1">Las 3 zonas (o cómo tomar una foto grupal)</h2>
+  <div class="zones">
+    <div class="card zone r" style="--d:2">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#1d1633" stroke-width="6" stroke-linejoin="round"><path d="M10 28h30l8 10h42v50H10z" fill="#ffc928"/></svg>
+      <span class="h3">Working dir</span><span class="sub">tus archivos</span>
+      <p>La gente en la fiesta. Todo lo que estás editando.</p>
+    </div>
+    <div class="arrow r" style="--d:3"><code>git add</code><svg viewBox="0 0 120 40" fill="#1d1633"><path d="M0 16h92V4l28 16-28 16V24H0z"/></svg></div>
+    <div class="card zone c-pink r" style="--d:4">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#1d1633" stroke-width="6" stroke-linejoin="round"><path d="M14 36h72v52H14z" fill="#fffdf8"/><path d="M14 36l12-20h48l12 20"/><path d="M40 52h20"/></svg>
+      <span class="h3">Staging</span><span class="sub">el encuadre</span>
+      <p>Los que se meten en la foto. Eliges qué entra.</p>
+    </div>
+    <div class="arrow r" style="--d:5"><code>git commit</code><svg viewBox="0 0 120 40" fill="#1d1633"><path d="M0 16h92V4l28 16-28 16V24H0z"/></svg></div>
+    <div class="card zone c-mint r" style="--d:6">
+      <svg viewBox="0 0 100 100" fill="none" stroke="#1d1633" stroke-width="6" stroke-linejoin="round"><rect x="10" y="26" width="80" height="58" rx="8" fill="#fffdf8"/><circle cx="50" cy="55" r="16" fill="#58a8ff"/><path d="M34 26l6-10h20l6 10"/></svg>
+      <span class="h3">Repositorio</span><span class="sub">.git/</span>
+      <p>¡Clic! La foto queda guardada en el álbum para siempre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · PRIMER REPO -->
+<section class="slide" data-level="1">
+  <div class="split">
+    <div class="term alt r" style="--d:1">
+      <div class="term-bar"><i></i><i></i><i></i><span>~/mi-proyecto</span></div>
+<pre><span class="r" style="--d:2"><span class="p">$</span> git <span class="k">init</span></span><span class="o r" style="--d:3">Initialized empty Git repository</span><span class="r" style="--d:4"><span class="p">$</span> git <span class="k">status</span></span><span class="o r" style="--d:5">Untracked files:  <span class="w">README.md</span></span><span class="r" style="--d:6"><span class="p">$</span> git <span class="k">add</span> README.md</span><span class="r" style="--d:7"><span class="p">$</span> git <span class="k">commit</span> -m <span class="s">"docs: agrega README"</span></span><span class="o r" style="--d:8">[main a1b2c3d] docs: agrega README</span><span class="o r" style="--d:8"> 1 file changed, 1 insertion(+)</span></pre>
+    </div>
+    <div>
+      <div class="kicker r">Tu primer commit</div>
+      <h2 class="h2 r" style="--d:1">El loop infinito</h2>
+      <ol class="steps mt">
+        <li class="r" style="--d:2">Editas archivos</li>
+        <li class="r" style="--d:3"><span><span class="ic">git add</span> lo que quieres guardar</span></li>
+        <li class="r" style="--d:4"><span><span class="ic">git commit</span> con un mensaje</span></li>
+        <li class="r" style="--d:5"><span>Repites. Mucho.<small>Tip: <span class="ic">git status</span> es tu mejor amigo. Úsalo siempre.</small></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · HISTORIAL -->
+<section class="slide" data-level="1">
+  <div class="split even">
+    <div>
+      <div class="kicker r">Mirar el pasado</div>
+      <h2 class="h2 r" style="--d:1">La máquina del tiempo</h2>
+      <div class="table mt">
+        <div class="trow r" style="--d:2"><span>Ver la lista de commits</span><code>git log --oneline</code></div>
+        <div class="trow r" style="--d:3"><span>¿Qué cambié y no he guardado?</span><code>git diff</code></div>
+        <div class="trow r" style="--d:4"><span>Ver un commit específico</span><code>git show a1b2c3d</code></div>
+        <div class="trow r" style="--d:5"><span>Descartar cambios de un archivo</span><code>git restore app.js</code></div>
+      </div>
+    </div>
+    <div class="term sky r" style="--d:2">
+      <div class="term-bar"><i></i><i></i><i></i><span>~/mi-proyecto</span></div>
+<pre style="font-size:26px"><span class="r" style="--d:3"><span class="p">$</span> git <span class="k">log</span> --oneline</span><span class="r" style="--d:4"><span class="k">e4f5a6b</span> <span class="c">(HEAD -> main)</span> feat: agrega footer</span><span class="r" style="--d:5"><span class="k">c3d4e5f</span> fix: corrige link del menú</span><span class="r" style="--d:6"><span class="k">a1b2c3d</span> docs: agrega README</span><span class="r" style="--d:7"> </span><span class="r" style="--d:7"><span class="p">$</span> git <span class="k">diff</span></span><span class="r w" style="--d:8">- &lt;h1&gt;Hola&lt;/h1&gt;</span><span class="r p" style="--d:8">+ &lt;h1&gt;Hola, mundo&lt;/h1&gt;</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 11 · GITIGNORE -->
+<section class="slide" data-level="1">
+  <div class="split even">
+    <div>
+      <div class="kicker r">Lo que NO se sube</div>
+      <h2 class="h2 r" style="--d:1">.gitignore</h2>
+      <p class="lede r" style="--d:2">Un archivo de texto con la lista de cosas que Git debe <b>fingir que no existen</b>.</p>
+      <div class="danger r" style="--d:6"><span class="sym">!</span>Nunca subas contraseñas ni llaves de API. Los bots las encuentran en minutos.</div>
+    </div>
+    <div class="card r" style="--d:2">
+      <span class="label">.gitignore</span>
+      <div class="ignore-list">
+        <div class="ig r" style="--d:3"><code>.env</code><small>contraseñas y llaves</small></div>
+        <div class="ig r" style="--d:4"><code>node_modules/</code><small>pesa una tonelada</small></div>
+        <div class="ig r" style="--d:4"><code>__pycache__/</code><small>basura de Python</small></div>
+        <div class="ig r" style="--d:5"><code>.DS_Store</code><small>cosas de Mac</small></div>
+        <div class="ig r" style="--d:5"><code>*.log</code><small>logs temporales</small></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 </div></div>
