@@ -237,6 +237,36 @@
   .cchip code { font-size: 27px; }
   .cchip span { font-size: 24px; font-weight: 500; color: var(--muted); }
 
+  /* flow */
+  .flow { display: grid; grid-template-columns: repeat(7, 1fr); gap: 18px; margin-top: 70px; align-items: stretch; position: relative; }
+  .flow::before { content: ""; position: absolute; left: 40px; right: 40px; top: 50%; height: 6px; background: var(--ink); z-index: -1; }
+  .fstep { display: flex; flex-direction: column; gap: 16px; padding: 28px 22px; border-radius: 24px; min-height: 330px; }
+  .fstep .label { margin: 0; font-size: 14px; }
+  .fstep .h3 { font-size: 36px; }
+  .fstep p { font-size: 24px; font-weight: 500; line-height: 1.25; }
+  .fstep code { margin-top: auto; font-size: 20px; background: rgba(255,253,248,.8); border: 3px solid var(--ink); border-radius: 10px; padding: 6px 10px; align-self: flex-start; }
+  .slide.active .fstep { animation: lift .5s var(--ease) both; animation-delay: calc(var(--d) * 260ms + 1400ms); }
+  @keyframes lift { 50% { translate: 0 -18px; } }
+
+  /* PR mock */
+  .pr { background: var(--white); border: 4px solid var(--ink); border-radius: 26px; box-shadow: 12px 12px 0 var(--lav); overflow: hidden; font-size: 26px; }
+  .pr-head { padding: 30px 34px 24px; border-bottom: 3px solid rgba(var(--ink-rgb), .15); }
+  .pr-title { font-size: 40px; font-weight: 750; letter-spacing: -.02em; }
+  .pr-title span { color: var(--muted); font-weight: 500; }
+  .pr-meta { display: flex; align-items: center; gap: 14px; margin-top: 16px; font-size: 24px; flex-wrap: wrap; }
+  .pill { font-family: var(--pixel); font-size: 13px; padding: 10px 14px; background: var(--mint); border: 3px solid var(--ink); border-radius: 30px; }
+  .branch { font-family: var(--mono); font-weight: 600; font-size: 21px; background: #e9e4ff; padding: 4px 10px; border-radius: 8px; }
+  .pr-body { padding: 26px 34px; display: flex; flex-direction: column; gap: 20px; }
+  .check { display: flex; align-items: center; gap: 16px; font-weight: 600; }
+  .check i { width: 30px; height: 30px; border-radius: 50%; background: var(--mint); border: 3px solid var(--ink); display: grid; place-items: center; font-style: normal; font-size: 16px; font-weight: 800; }
+  .comment { display: flex; gap: 18px; }
+  .avatar { width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--ink); background: var(--pink); flex: none; display: grid; place-items: center; font-weight: 800; font-size: 24px; }
+  .bubble { background: #f6f1e6; border: 3px solid var(--ink); border-radius: 18px; padding: 16px 20px; font-weight: 500; line-height: 1.3; }
+  .bubble b { display: block; font-size: 21px; margin-bottom: 4px; }
+  .merge { align-self: flex-start; font-family: var(--display); font-size: 28px; font-weight: 750; padding: 16px 28px; background: var(--mint); border: 4px solid var(--ink); border-radius: 16px; box-shadow: 5px 5px 0 var(--ink); }
+  .slide.active .merge { animation: press 2.4s var(--ease) infinite 2.2s; }
+  @keyframes press { 0%, 70%, 100% { transform: none; box-shadow: 5px 5px 0 var(--ink); } 80% { transform: translate(5px,5px); box-shadow: 0 0 0 var(--ink); } }
+
 </style>
 </head>
 <body>
@@ -559,6 +589,53 @@
     <div class="term r" style="--d:2">
       <div class="term-bar"><i></i><i></i><i></i><span>index.html · CONFLICT</span></div>
 <pre><span class="o r" style="--d:3">&lt;body&gt;</span><span class="w r" style="--d:4">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><span class="r" style="--d:4">  &lt;h1&gt;Bienvenidos&lt;/h1&gt;</span><span class="k r" style="--d:5">=======</span><span class="r" style="--d:5">  &lt;h1&gt;Hola, mundo&lt;/h1&gt;</span><span class="s r" style="--d:6">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/saludo</span><span class="o r" style="--d:6">&lt;/body&gt;</span><span class="r" style="--d:7"> </span><span class="c r" style="--d:7"># arriba: tu rama actual</span><span class="c r" style="--d:7"># abajo: la rama que entra</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · NIVEL 4 -->
+<section class="slide divider" data-level="4" data-bg="#2fd6a1">
+  <div class="world pop">NIVEL 4</div>
+  <h2 class="display r" style="--d:1">Modo equipo</h2>
+  <p class="lede r" style="--d:2">Así se trabaja en empresas y proyectos open source.</p>
+  <div class="levels r" style="--d:3"><i class="done">1</i><b></b><i class="done">2</i><b></b><i class="done">3</i><b></b><i class="now">4</i><b></b><i>5</i></div>
+</section>
+
+<!-- 19 · FLOW -->
+<section class="slide" data-level="4">
+  <div class="kicker r">GitHub Flow</div>
+  <h2 class="h2 r" style="--d:1">El flujo de cada cambio</h2>
+  <div class="flow">
+    <div class="card fstep c-white r" style="--d:2"><span class="label">01</span><span class="h3">Issue</span><p>Alguien describe el bug o la idea</p><code>#12</code></div>
+    <div class="card fstep c-sun r" style="--d:3"><span class="label">02</span><span class="h3">Rama</span><p>Creas tu universo paralelo</p><code>switch -c</code></div>
+    <div class="card fstep c-sun r" style="--d:4"><span class="label">03</span><span class="h3">Commits</span><p>Trabajas y guardas partida</p><code>commit</code></div>
+    <div class="card fstep c-sky r" style="--d:5"><span class="label">04</span><span class="h3">Push</span><p>Subes tu rama a GitHub</p><code>push</code></div>
+    <div class="card fstep c-pink r" style="--d:6"><span class="label">05</span><span class="h3">Pull Request</span><p>Pides que revisen tu código</p><code>PR</code></div>
+    <div class="card fstep c-lav r" style="--d:7"><span class="label">06</span><span class="h3">Review</span><p>Te comentan, corriges</p><code>approve</code></div>
+    <div class="card fstep c-mint r" style="--d:8"><span class="label">07</span><span class="h3">Merge</span><p>Tu código entra a main</p><code>✓</code></div>
+  </div>
+</section>
+
+<!-- 20 · PR -->
+<section class="slide" data-level="4">
+  <div class="split even">
+    <div>
+      <div class="kicker r">Pull Request</div>
+      <h2 class="h2 r" style="--d:1">"Oigan, ¿puedo meter esto?"</h2>
+      <p class="lede r" style="--d:2">Un PR es una <b>propuesta</b> de cambio. Tu equipo lo lee, comenta y aprueba antes de unirlo a <b>main</b>.</p>
+      <div class="note r" style="--d:4">¿No tienes permiso en el repo? Haz un <b>Fork</b> (tu propia copia) y abre el PR desde ahí. Así se contribuye al open source.</div>
+    </div>
+    <div class="pr r" style="--d:2">
+      <div class="pr-head">
+        <div class="pr-title">Agrega página de contacto <span>#12</span></div>
+        <div class="pr-meta"><span class="pill">OPEN</span><span class="branch">feature/contacto</span> → <span class="branch">main</span></div>
+      </div>
+      <div class="pr-body">
+        <div class="check r" style="--d:3"><i>✓</i>Todos los checks pasaron</div>
+        <div class="comment r" style="--d:4"><span class="avatar">M</span><div class="bubble"><b>maria-dev</b>¡Se ve bien! Solo cambia el color del botón y le doy approve.</div></div>
+        <div class="comment r" style="--d:5"><span class="avatar" style="background:var(--sun)">TÚ</span><div class="bubble"><b>tú</b>Listo, ya lo cambié en el último commit.</div></div>
+        <span class="merge r" style="--d:6">Merge pull request</span>
+      </div>
     </div>
   </div>
 </section>
