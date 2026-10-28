@@ -275,6 +275,14 @@
   .member.rulebox { flex: 1; background: var(--sun); font-size: 30px; font-weight: 600; padding: 16px 28px; }
   .member.rulebox b { display: inline; font-size: inherit; }
 
+  /* power-ups */
+  .powers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 54px; }
+  .power { padding: 30px 34px; display: flex; flex-direction: column; gap: 14px; min-height: 240px; }
+  .power code { font-size: 32px; }
+  .power .h3 { font-size: 38px; }
+  .power p { font-size: 27px; font-weight: 500; line-height: 1.28; }
+  .power .label { margin: 0; font-size: 13px; }
+
 </style>
 </head>
 <body>
@@ -707,6 +715,55 @@
       <div class="term-bar"><i></i><i></i><i></i><span>compu de Beto</span></div>
 <pre style="font-size:26px"><span class="c r" style="--d:3"># Ana hizo push hace 1 minuto...</span><span class="r" style="--d:4"><span class="p">beto $</span> git <span class="k">push</span></span><span class="w r" style="--d:5"> ! [rejected]  main -> main (fetch first)</span><span class="w r" style="--d:5">error: failed to push some refs</span><span class="r" style="--d:6"> </span><span class="r" style="--d:6"><span class="p">beto $</span> git <span class="k">pull</span></span><span class="o r" style="--d:7">Merge made by the 'ort' strategy.</span><span class="r" style="--d:8"><span class="p">beto $</span> git <span class="k">push</span></span><span class="p r" style="--d:9">   c3d4e5f..f7a8b9c  main -> main</span><span class="r cur" style="--d:10"><span class="p">beto $</span> </span></pre>
     </div>
+  </div>
+</section>
+
+<!-- 23 · NIVEL 5 -->
+<section class="slide divider" data-level="5" data-bg="#1d1633" style="color:#fff4e0">
+  <div class="world pop" style="color:var(--sun)">NIVEL 5</div>
+  <h2 class="display r" style="--d:1">Modo experto</h2>
+  <p class="lede r" style="--d:2; color:rgba(255,244,224,.7)">Power-ups para cuando ya domines lo básico.</p>
+  <div class="levels r" style="--d:3"><i class="done" style="background:var(--mint);color:var(--ink)">1</i><b style="background:#fff4e0"></b><i class="done" style="background:var(--mint);color:var(--ink)">2</i><b style="background:#fff4e0"></b><i class="done" style="background:var(--mint);color:var(--ink)">3</i><b style="background:#fff4e0"></b><i class="done" style="background:var(--mint);color:var(--ink)">4</i><b style="background:#fff4e0"></b><i class="now" style="background:var(--sun);color:var(--ink)">5</i></div>
+</section>
+
+<!-- 24 · POWER-UPS -->
+<section class="slide" data-level="5">
+  <div class="kicker r">Power-ups</div>
+  <h2 class="h2 r" style="--d:1">Comandos de nivel pro</h2>
+  <div class="powers">
+    <div class="card power c-sun r" style="--d:2"><span class="label">CAJÓN</span><code>git stash</code><p>Guarda cambios a medias para cambiar de rama sin hacer commit.</p></div>
+    <div class="card power c-pink r" style="--d:3"><span class="label">REESCRIBIR</span><code>git rebase -i</code><p>Ordena, une o edita tus commits locales antes de compartirlos.</p></div>
+    <div class="card power c-sky r" style="--d:4"><span class="label">COPIAR</span><code>git cherry-pick</code><p>Trae un solo commit de otra rama a la tuya.</p></div>
+    <div class="card power c-mint r" style="--d:5"><span class="label">VERSIONES</span><code>git tag v1.0</code><p>Marca un commit como versión oficial (un release).</p></div>
+    <div class="card power c-lav r" style="--d:6"><span class="label">DETECTIVE</span><code>git bisect</code><p>Encuentra el commit exacto que rompió todo con búsqueda binaria.</p></div>
+    <div class="card power c-tomato r" style="--d:7"><span class="label">RED DE SEGURIDAD</span><code>git reflog</code><p>Historial de todo lo que hiciste. Casi nada se pierde de verdad.</p></div>
+  </div>
+</section>
+
+<!-- 25 · GITHUB EXTRAS -->
+<section class="slide" data-level="5">
+  <div class="kicker r">Más allá del código</div>
+  <h2 class="h2 r" style="--d:1">GitHub es una navaja suiza</h2>
+  <div class="powers">
+    <div class="card power r" style="--d:2"><span class="label">HOSTING GRATIS</span><span class="h3">GitHub Pages</span><p>Publica tu portafolio en <b>tu-user.github.io</b> sin pagar nada.</p></div>
+    <div class="card power r" style="--d:3"><span class="label">AUTOMATIZAR</span><span class="h3">Actions</span><p>Corre tests y deploys solos cada vez que haces push.</p></div>
+    <div class="card power r" style="--d:4"><span class="label">ORGANIZAR</span><span class="h3">Issues & Projects</span><p>Tareas, bugs y tableros tipo Trello para tu equipo.</p></div>
+    <div class="card power c-sun r" style="--d:5"><span class="label">ESTUDIANTES</span><span class="h3">Student Pack</span><p>Herramientas pro gratis con tu correo de la U.</p></div>
+    <div class="card power r" style="--d:6"><span class="label">TU CARTA DE PRESENTACIÓN</span><span class="h3">README de perfil</span><p>Un repo con tu mismo nombre de usuario se vuelve tu portada.</p></div>
+    <div class="card power r" style="--d:7"><span class="label">IA</span><span class="h3">Copilot</span><p>Asistente de código, gratis para estudiantes verificados.</p></div>
+  </div>
+</section>
+
+<!-- 26 · SALVAVIDAS -->
+<section class="slide" data-level="5">
+  <div class="kicker r">Oops… ¿y ahora?</div>
+  <h2 class="h2 r" style="--d:1">Kit de salvavidas</h2>
+  <div class="table mt">
+    <div class="trow r" style="--d:2"><span>Me equivoqué en el mensaje del último commit</span><code>git commit --amend -m "nuevo"</code></div>
+    <div class="trow r" style="--d:3"><span>Hice commit muy pronto (aún sin push)</span><code>git reset --soft HEAD~1</code></div>
+    <div class="trow r" style="--d:4"><span>Ya hice push de algo malo</span><code>git revert a1b2c3d</code></div>
+    <div class="trow r" style="--d:5"><span>Borré una rama o perdí un commit</span><code>git reflog</code></div>
+    <div class="trow warn r" style="--d:6"><span>Nunca en una rama compartida como main</span><code>git push --force</code></div>
   </div>
 </section>
 
